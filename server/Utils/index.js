@@ -1,9 +1,9 @@
 const moment = require('moment')
 
 module.exports = {
-    getTimeInternvals: function (start, end, interval) {
-        var startTime = moment(start).utc();
-        var endTime = moment(end).utc();
+    getTimeInternvals: function (date, start, end, interval) {
+        let startTime = moment(date + ' ' + start, 'DD/MM/YYYY HH:mm').utc();
+        let endTime = moment(date + ' ' + end, 'DD/MM/YYYY HH:mm').utc();
 
         if (endTime.isBefore(startTime)) {
             endTime.add(1, 'day');
